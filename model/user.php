@@ -9,7 +9,7 @@ class User extends MySqlDb{
             "u_email='".$data->email."' AND u_password='".md5($data->password)."'"
         );
         $obj = new stdClass();
-        if ($auth->success == true) {
+        if ($auth->success) {
             $obj->status = 200;
             $obj->success = true;
             $obj->data = $auth->data;

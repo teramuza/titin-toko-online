@@ -2,4 +2,3 @@
 include "main.php";
 
 logout();
-die();

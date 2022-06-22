@@ -32,10 +32,10 @@ class MySqlDb {
     }
 
     static function getAllData($table) {
-        $myql = new MySqlDb();
+        $mysql = new MySqlDb();
 
         $sql = "SELECT * FROM ".$table;
-        $sql = $myql->conn->query($sql);
+        $sql = $mysql->conn->query($sql);
         $rows = array();
         while($row = $sql->fetch_assoc()) {
             $rows[] = $row;
@@ -44,10 +44,10 @@ class MySqlDb {
     }
 
     static function getArrData($table, $where) {
-        $myql = new MySqlDb();
+        $mysql = new MySqlDb();
 
         $sql = "SELECT * FROM ".$table." WHERE ".$where;
-        $sql = $myql->conn->query($sql);
+        $sql = $mysql->conn->query($sql);
         $rows = array();
         while($row = $sql->fetch_assoc()) {
             $rows[] = $row;
@@ -56,39 +56,37 @@ class MySqlDb {
     }
     
     static function getData($table, $where){
-        $myql = new MySqlDb();
+        $mysql = new MySqlDb();
 
         $sql = "SELECT * FROM ".$table." WHERE ".$where;          
-        $sql = $myql->conn->query($sql);
-        $sql = $sql->fetch_assoc();
-        return $sql;
+        $sql = $mysql->conn->query($sql);
+        return $sql->fetch_assoc();
     }
 
     static function checkData($table, $where) {
-        $myql = new MySqlDb();
+        $mysql = new MySqlDb();
 
         $sql = "SELECT * FROM ".$table." WHERE ".$where;          
-        $sql = $myql->conn->query($sql);
+        $sql = $mysql->conn->query($sql);
         $obj = new stdClass();
         if(mysqli_num_rows($sql) > 0){
             $sql = $sql->fetch_assoc();
             unset($sql['u_password']);
             $obj->success = true;
             $obj->data = $sql;
-            return $obj;
         }else{
             $obj->success = false;
-            return $obj;
         }
+        return $obj;
     }
 
     static function updateData($table, $update_value, $where){
-        $myql = new MySqlDb();
+        $mysql = new MySqlDb();
 
         $sql = "UPDATE ".$table." SET ".$update_value." WHERE ".$where;        
         print_r($sql);
-        $sql = $myql->conn->query($sql);
-        if($sql == true){
+        $sql = $mysql->conn->query($sql);
+        if($sql){
             return true;
         }else{
             return false;
@@ -96,11 +94,11 @@ class MySqlDb {
     }
 
     static function createData($table, $columns, $values){
-        $myql = new MySqlDb();
+        $mysql = new MySqlDb();
 
         $sql = "INSERT INTO ".$table." (".$columns.") VALUES (".$values.')';  
-        $sql = $myql->conn->query($sql);
-        if($sql == true){
+        $sql = $mysql->conn->query($sql);
+        if($sql){
             return true;
         }else{
             return false;
@@ -108,15 +106,14 @@ class MySqlDb {
     }
 
     static function deleteData($table, $filter){
-        $myql = new MySqlDb();
+        $mysql = new MySqlDb();
 
         $sql =  "DELETE FROM ".$table." ".$filter;  
-        $sql = $myql->conn->query($sql);
-        if($sql == true){
+        $sql = $mysql->conn->query($sql);
+        if($sql){
             return true;
         }else{
             return false;
         }
     }
 }
-?>
