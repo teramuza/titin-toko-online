@@ -1,6 +1,6 @@
 <?php
 include "constants/direct_access.php";
-include "config/config.example.php";
+include "config/config.php";
 
 session_start();
 
@@ -43,4 +43,7 @@ function checkLoggedIn() {
     }
 }
 
-$model_url = base_url('model/');
+function getModel($path = '') {
+    if (isset($path)) return base_url('model/'.$path.'.php');
+    return base_url('model/');
+}

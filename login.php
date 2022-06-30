@@ -6,8 +6,7 @@ include "main.php";
 	}
 
     if (isset($_POST['login'])) {
-        global $model_url;
-        $curl = curl_init($model_url);
+        $curl = curl_init(getModel('auth'));
         curl_setopt($curl, CURLOPT_POST, true);
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($_POST));
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);

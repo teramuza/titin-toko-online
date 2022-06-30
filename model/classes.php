@@ -1,4 +1,4 @@
 <?php
 
-include "../database/mysql.php";
+require("../database/mysql.php");
 include "user.php";
