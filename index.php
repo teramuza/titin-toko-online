@@ -1,7 +1,5 @@
 <?php
 include "main.php";
-include "helpers/includeView.php";
-include "helpers/date_indo.php";
 
 checkLoggedIn();
 

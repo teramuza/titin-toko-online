@@ -2,6 +2,9 @@
 include "constants/direct_access.php";
 include "config/config.php";
 
+include "helpers/include_view.php";
+include "helpers/date_indo.php";
+
 session_start();
 
 function base_url($path = null) {
