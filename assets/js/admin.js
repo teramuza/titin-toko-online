@@ -457,3 +457,29 @@ $(function () {
 
     setTimeout(function () { $('.page-loader-wrapper').fadeOut(); }, 50);
 });
+
+$(function () {
+    $('.js-sweetalert button').on('click', function () {
+        var type = $(this).data('type');
+        if (type === 'confirmlogout') {
+            showConfirmLogoutMessage();
+        }
+    })
+})
+
+function showConfirmLogoutMessage(redirectPath) {
+    swal({
+        title: "Yakin ingin keluar?",
+        text: "Sesi anda akan diakhiri dan anda akan diteruskan ke halaman login",
+        type: "warning",
+        showCancelButton: true,
+        cancelButtonText: "Batal",
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Ya, Keluar",
+        closeOnConfirm: false
+    }, function () {
+        swal("Sesi diakhiri!", "Anda akan diteruskan ke halaman login", "success");
+        setTimeout(() => window.location.replace(redirectPath), 2200);
+    });
+}
+

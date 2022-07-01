@@ -110,7 +110,6 @@
         <!-- Menu -->
         <div class="menu">
             <ul class="list">
-                <li class="header">MAIN NAVIGATION</li>
                 <li class="active">
                 </li>
                 <li>
@@ -154,9 +153,9 @@
                     </li>
                 <?php } ?>
                 <li>
-                    <a href="<?=base_url('account/logout');?>">
+                    <a data-type="confirmlogout" onclick="showConfirmLogoutMessage('<?=base_url('logout.php');?>')">
                         <i class="material-icons">input</i>
-                        <span>Sign Out</span>
+                        <span>Keluar</span>
                     </a>
                 </li>
             </ul>
@@ -166,10 +165,10 @@
         <!-- Copyright -->
         <div class="legal">
             <div class="copyright">
-                &copy; <?php if(date('Y') > 2022){echo '2022 - '.date('Y');}else{ echo '2022';} ?> <a target="blank" href="#">d<strong>Panel</strong> - TeraLab</a>.
+                &copy; <?php if(date('Y') > 2022){echo '2022 - '.date('Y');}else{ echo '2022';} ?> <a target="blank" href="#">d<strong>Panel</strong> - G99Byul</a>.
             </div>
             <div class="version">
-                <b>Version: </b> 2.1.1
+                <b>Version: </b> 0.1.1
             </div>
         </div>
         <!-- #Copyright -->
