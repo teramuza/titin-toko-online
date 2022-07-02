@@ -47,6 +47,12 @@ function checkLoggedIn() {
 }
 
 function getModel($path = '') {
-    if (isset($path)) return base_url('model/'.$path.'.php');
+    if (!empty($path != '')) return base_url('model/'.$path.'.php');
     return base_url('model/');
+}
+
+function getModelWithQuery($query, $path = '') {
+    $url = getModel($path);
+    $url .= '?'.$query;
+    return $url;
 }

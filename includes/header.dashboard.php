@@ -1,3 +1,5 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
+
 <!DOCTYPE html>
 <html>
 
@@ -101,7 +103,7 @@
                         <li><a href="<?=base_url('account');?>"><i class="material-icons">person</i>Akun Profil</a></li>
                         <li><a href="<?=base_url('account/password');?>"><i class="material-icons">security</i>Ubah Sandi</a></li>
                         <li role="seperator" class="divider"></li>
-                        <li><a href="<?=base_url('account/logout');?>"><i class="material-icons">input</i>Sign Out</a></li>
+                        <li><a href="<?=base_url('logout.php');?>"><i class="material-icons">input</i>Keluar</a></li>
                     </ul>
                 </div>
             </div>
@@ -119,39 +121,31 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url('articles');?>">
-                        <i class="material-icons">library_books</i>
-                        <span>Artikel</span>
+                    <a href="<?=base_url('categories.php');?>">
+                        <i class="material-icons">widgets</i>
+                        <span>Kategori Produk</span>
                     </a>
                 </li>
                 <li>
-                    <a href="<?=base_url('events');?>">
-                        <i class="material-icons">event</i>
-                        <span>Event</span>
+                    <a href="<?=base_url('products.php');?>">
+                        <i class="material-icons">view_quilt</i>
+                        <span>Produk</span>
                     </a>
                 </li>
-                <?php if($session_user['level'] != 2){ ?>
+                <?php if($userData->u_profile == 'A'): ?>
                     <li>
-                        <a href="<?=base_url('gallery');?>">
-                            <i class="material-icons">photo_library</i>
-                            <span>Galery</span>
-                        </a>
-                    </li>
-                <?php } else { ?>
-                    <li>
-                        <a href="<?=base_url('gallery/jurusan');?>">
-                            <i class="material-icons">photo_library</i>
-                            <span>Galery Jurusan</span>
-                        </a>
-                    </li>
-                <?php } if($session_user['level'] == 0){ ?>
-                    <li>
-                        <a href="<?=base_url('users');?>">
+                        <a href="<?=base_url('users.php');?>">
                             <i class="material-icons">supervisor_account</i>
-                            <span>Pengguna</span>
+                            <span>Akun Pengguna</span>
                         </a>
                     </li>
-                <?php } ?>
+                <?php endif; ?>
+                <li>
+                    <a href="<?=base_url('promos.php');?>">
+                        <i class="material-icons">confirmation_number</i>
+                        <span>Promo</span>
+                    </a>
+                </li>
                 <li>
                     <a data-type="confirmlogout" onclick="showConfirmLogoutMessage('<?=base_url('logout.php');?>')">
                         <i class="material-icons">input</i>

@@ -1,3 +1,4 @@
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed'); ?>
 <!-- Jquery Core Js -->
 <script src="<?=base_url('assets/plugins/jquery/jquery.min.js');?>"></script>
 
@@ -54,12 +55,9 @@
 
 <!-- Custom Js -->
 <script src="<?=base_url('assets/js/admin.js');?>"></script>
-<?php if(!empty(@$custom_js)){ ?>
-    <script src="<?=base_url('assets').'/'.$custom_js;?>"></script>
-<?php } ?>
-
-<!-- Demo Js -->
-<script src="<?=base_url('assets/js/demo.js');?>"></script>
+<?php if(!empty(@$custom_js)): ?>
+<script src="<?=base_url('assets').'/'.$custom_js;?>"></script>
+<?php endif; ?>
 </body>
 
 </html>
