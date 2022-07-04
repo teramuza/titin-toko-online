@@ -14,16 +14,19 @@ class Products extends MySqlDb{
         return Products::getArrData('produk', "p_kp_kode='".$categoryId."'");
     }
 
+    static function countData($table = 'produk') {
+        return parent::countData($table);
+    }
+
     static function createProducts($data) {
         return Products::createData(
             'produk',
-            "p_nama, p_satuan, p_harga, p_kp_kode, p_photo",
+            "p_nama, p_satuan, p_harga, p_kp_kode",
             "
                 '$data->name',
                 '$data->satuan',
                 '$data->harga',
-                '$data->kp_kode',
-                '$data->photo_url'
+                '$data->kp_kode'
             "
         );
     }
@@ -35,8 +38,7 @@ class Products extends MySqlDb{
                 p_nama='".$data->name."',
                 p_satuan'".$data->satuan."',
                 p_harga'".$data->harga."',
-                p_kp_kode'".$data->kp_kode."',
-                p_photo'".$data->photo_url."'
+                p_kp_kode'".$data->kp_kode."'
             ",
             "id='".$data->id."'");
     }

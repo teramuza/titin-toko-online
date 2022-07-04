@@ -42,21 +42,21 @@ includeView('includes/header.dashboard.php', $data);
                                     </thead>
                                     <?php if (!empty($arr)): ?>
                                     <tbody>
-                                    <?php foreach($arr as $data): ?>
+                                    <?php foreach($arr as $item): ?>
                                         <tr>
-                                            <td><?=$data->id;?></td>
-                                            <td><?=$data->p_nama;?></td>
-                                            <td><?=$data->p_satuan;?></td>
-                                            <td><?=$data->p_harga;?></td>
-                                            <td><?=$data->p_kp_kode;?></td>
+                                            <td><?=$item->id;?></td>
+                                            <td><?=$item->p_nama;?></td>
+                                            <td><?=$item->p_satuan;?></td>
+                                            <td><?=$item->p_harga;?></td>
+                                            <td><?=$item->p_kp_kode;?></td>
                                             <td>
                                                 <div class="btn-group">
                                                     <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Menu <span class="caret"></span>
                                                     </button>
                                                     <ul class="dropdown-menu action-tools">
-                                                        <li><a href="<?=base_url('products.update.php').'?id='.$data->id;?>" class=" waves-effect waves-block">Update</a></li>
+                                                        <li><a href="<?=base_url('products.edit.php').'?id='.$item->id;?>" class=" waves-effect waves-block">Update</a></li>
                                                         <li role="separator" class="divider"></li>
-                                                        <li><a href="<?=base_url('products.delete.php').'?id='.$data->id;?>" class=" waves-effect waves-block">Hapus</a></li>
+                                                        <li><a href="<?=base_url('delete.php').'?table=products&id='.$item->id;?>" class=" waves-effect waves-block">Hapus</a></li>
                                                     </ul>
                                                 </div>
                                             </td>

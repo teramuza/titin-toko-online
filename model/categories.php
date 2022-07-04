@@ -10,6 +10,10 @@ class Categories extends MySqlDb{
         return Categories::getData('kategori_produk', "id='".$id."'");
     }
 
+    static function countData($table = 'user') {
+        return parent::countData($table);
+    }
+
     static function createCategories($data) {
         return Categories::createData('kategori_produk', "kp_nama", "'$data->name'");
     }

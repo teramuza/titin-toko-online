@@ -39,18 +39,18 @@ includeView('includes/header.dashboard.php', $data);
                                 </thead>
                                 <?php if (!empty($arr)): ?>
                                 <tbody>
-                                <?php foreach($arr as $data): ?>
+                                <?php foreach($arr as $item): ?>
                                     <tr>
-                                        <td><?=$data->id;?></td>
-                                        <td><?=$data->kp_nama;?></td>
+                                        <td><?=$item->id;?></td>
+                                        <td><?=$item->kp_nama;?></td>
                                         <td>
                                             <div class="btn-group">
                                                 <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">Menu <span class="caret"></span>
                                                 </button>
                                                 <ul class="dropdown-menu action-tools">
-                                                    <li><a href="<?=base_url('categories.update.php').'?id='.$data->id;?>" class=" waves-effect waves-block">Update</a></li>
+                                                    <li><a href="<?=base_url('categories.edit.php').'?id='.$item->id;?>" class=" waves-effect waves-block">Update</a></li>
                                                     <li role="separator" class="divider"></li>
-                                                    <li><a href="<?=base_url('categories.delete.php').'?id='.$data->id;?>" class=" waves-effect waves-block">Hapus</a></li>
+                                                    <li><a href="<?=base_url('delete.php').'?table=categories&id='.$item->id;?>" class=" waves-effect waves-block">Hapus</a></li>
                                                 </ul>
                                             </div>
                                         </td>

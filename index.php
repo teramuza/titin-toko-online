@@ -3,6 +3,12 @@ include "main.php";
 
 checkLoggedIn();
 
+$url = getModelWithQuery('table=products', 'count');
+$count['product'] = json_decode(file_get_contents($url));
+
+$url = getModelWithQuery('table=users', 'count');
+$count['user'] = json_decode(file_get_contents($url));
+
 $data = array();
 $data['title'] = 'Dashboard';
 $data['userData'] = $_SESSION['user_data'];
@@ -35,7 +41,7 @@ includeView('includes/header.dashboard.php', $data);
                     </div>
                     <div class="content">
                         <div class="text">PRODUK</div>
-                        <div class="number count-to" data-from="0" data-to="100" data-speed="2000" data-fresh-interval="20"></div>
+                        <div class="number count-to" data-from="0" data-to="<?=$count['product'];?>" data-speed="2000" data-fresh-interval="20"><?=$count['product'];?></div>
                     </div>
                 </div>
             </div>
@@ -47,7 +53,7 @@ includeView('includes/header.dashboard.php', $data);
                     </div>
                     <div class="content">
                         <div class="text">PENGGUNA</div>
-                        <div class="number count-to" data-from="0" data-to="100" data-speed="2000" data-fresh-interval="20"></div>
+                        <div class="number count-to" data-from="0" data-to="<?=$count['user'];?>" data-speed="2000" data-fresh-interval="20"><?=$count['user'];?></div>
                     </div>
                 </div>
             </div>
@@ -59,7 +65,7 @@ includeView('includes/header.dashboard.php', $data);
                     </div>
                     <div class="content">
                         <div class="text">PROMO</div>
-                        <div class="number count-to" data-from="0" data-to="100" data-speed="2000" data-fresh-interval="20"></div>
+                        <div class="number count-to" data-from="0" data-to="0" data-speed="2000" data-fresh-interval="20">0</div>
                     </div>
                 </div>
             </div>

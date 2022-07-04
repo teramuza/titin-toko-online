@@ -33,4 +33,8 @@ class User extends MySqlDb{
                 'a'
             ");
     }
+
+    static function countData($table = 'user') {
+        return parent::countData($table);
+    }
 }

@@ -63,6 +63,14 @@ class MySqlDb {
         return $sql->fetch_assoc();
     }
 
+    static function countData($table) {
+        $mysql = new MySqlDb();
+
+        $sql = "SELECT COUNT(*) FROM ".$table;
+        $sql = $mysql->conn->query($sql);
+        return $sql->fetch_row()[0];
+    }
+
     static function checkData($table, $where) {
         $mysql = new MySqlDb();
 
@@ -80,7 +88,7 @@ class MySqlDb {
         return $obj;
     }
 
-    static function updateData($table, $update_value, $where){
+    static function  updateData($table, $update_value, $where){
         $mysql = new MySqlDb();
 
         $sql = "UPDATE ".$table." SET ".$update_value." WHERE ".$where;        
